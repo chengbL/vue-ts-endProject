@@ -13,13 +13,12 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h1>Hello vue3 + ts👍</h1>
+    <!-- <ul>
+      <li><RouterLink to="/">去首页</RouterLink></li>
+      <li><RouterLink to="/login">去登录页</RouterLink></li>
+    </ul> -->
+    <router-view></router-view>
   </div>
 </template>
 
-<style lang="less" scoped>
-h1 {
-  background-color: @warnColor;
-  .hoverShadow();
-}
-</style>
+<style lang="less" scoped></style>
