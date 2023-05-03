@@ -1,10 +1,25 @@
 <script setup lang="ts">
-//
-// const a = 23565
+import { onMounted } from 'vue'
+
+import instance from './utils/request'
+
+onMounted(async () => {
+  const res = await instance({
+    url: '/home/index'
+  })
+  console.log('res:', res)
+})
 </script>
 
 <template>
-  <h1>Hello vue3 + ts👍</h1>
+  <div>
+    <h1>Hello vue3 + ts👍</h1>
+  </div>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+h1 {
+  background-color: @warnColor;
+  .hoverShadow();
+}
+</style>
