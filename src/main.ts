@@ -10,7 +10,12 @@ import '@/assets/styles/common.less'
 // !!路由配置信息导入
 import router from '@/router'
 
+// !!使用pinia管理数据
+import { createPinia } from 'pinia'
+const pinia = createPinia()
+
 const app = createApp(App)
 
 app.use(router)
+app.use(pinia)
 app.mount('#app')
