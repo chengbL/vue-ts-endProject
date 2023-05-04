@@ -1,28 +1,32 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { useWindowScroll } from '@vueuse/core'
 import AppHeaderNav from './app-header-nav.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
+// import { onMounted, onUnmounted, ref } from 'vue'
 
-const isShow = ref(false)
+// const isShow = ref(false)
 
 // 组件挂载时绑定事件，组件卸载时移除事件
-const handleScroll = () => {
-  const top = document.documentElement.scrollTop
-  // isShow.value = top >= 60 ? true : false   // 也可以直接下面这样写
-  isShow.value = top >= 60
-}
+// const handleScroll = () => {
+//   const top = document.documentElement.scrollTop
+//   // isShow.value = top >= 60 ? true : false   // 也可以直接下面这样写
+//   isShow.value = top >= 60
+// }
 
-onMounted(() => {
-  document.addEventListener('scroll', handleScroll)
-})
+// onMounted(() => {
+//   document.addEventListener('scroll', handleScroll)
+// })
 
-onUnmounted(() => {
-  document.addEventListener('scroll', handleScroll)
-})
+// onUnmounted(() => {
+//   document.addEventListener('scroll', handleScroll)
+// })
+
+// 使用第三方插件完成吸顶功能
+const { y } = useWindowScroll()
 </script>
 
 <template>
-  <div class="app-header-sticky" :class="{ show: isShow }">
+  <div class="app-header-sticky" :class="{ show: y > 60 }">
     <div class="container">
       <RouterLink class="logo" to="/" />
       <AppHeaderNav />
