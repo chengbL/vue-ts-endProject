@@ -15,46 +15,8 @@ import AppFooter from './components/app-footer.vue'
   <!-- 固定的头部导航 -->
   <AppHeaderSticky></AppHeaderSticky>
 
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+  <!-- 内容区路由出口 -->
+  <router-view></router-view>
 
   <!-- 底部组件 -->
   <AppFooter></AppFooter>
