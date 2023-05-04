@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios, { type Method } from 'axios'
+// import type { CategoryList } from '@/types'
 
 // todo 创建axios实例
 const instance = axios.create({
@@ -29,5 +30,22 @@ instance.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+/**
+ * @param method 请求类型
+ * @param url 请求地址
+ * @param obj 对象类型，提交数据
+ */
+export const http = <T>(method: Method, url: string, obj?: object) => {
+  return instance<{
+    code: string
+    msg: string
+    result: T
+  }>({
+    method,
+    url,
+    [method.toUpperCase() === 'GET' ? 'params' : 'data']: obj
+  })
+}
 
 export default instance

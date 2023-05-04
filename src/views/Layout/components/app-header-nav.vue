@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHomeStore } from '@/store'
 const home = useHomeStore()
+home.getAllCategory()
 </script>
 
 <template>

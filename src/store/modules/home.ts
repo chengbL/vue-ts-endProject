@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
-import instance from '@/utils/request'
+import { http } from '@/utils/request'
+
+// 如果引进的是类型一定要加上type
 import type { CategoryList } from '@/types'
 
 export const useHomeStore = defineStore('home', {
@@ -11,7 +13,7 @@ export const useHomeStore = defineStore('home', {
   getters: {},
   actions: {
     async getAllCategory() {
-      const res = await instance({ url: '/home/category/head' })
+      const res = await http<CategoryList>('GET', '/home/category/head')
       console.log('res:', res)
       this.categoryList = res.data.result
     }
