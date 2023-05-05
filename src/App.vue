@@ -7,7 +7,7 @@ onMounted(async () => {
   const res = await instance({
     url: '/home/index'
   })
-  console.log('res:', res)
+  // console.log('res:', res)
 })
 </script>
 
