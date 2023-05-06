@@ -1,7 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useHomeStore } from '@/store'
+
+const home = useHomeStore()
+home.getBannerList()
+</script>
 
 <template>
-  <div class="home-banner">banner</div>
+  <div class="home-banner">
+    <XtxSlider :sliders="home.bannerList" auto-play />
+  </div>
 </template>
 
 <style scoped lang="less">

@@ -7,7 +7,8 @@ const home = useHomeStore()
 
 <template>
   <div class="home-category">
-    <ul class="menu">
+    <!-- 左侧分类 -->
+    <ul class="menu" v-if="home.categoryList.length > 0">
       <li v-for="item in home.categoryList" :key="item.id">
         <RouterLink to="/">{{ item.name }}</RouterLink>
         <!-- vue2中 v-for的优先级比v-if要高，在vue3中恰恰相反，总之不管是v2还是v3都不建议v-if和v-for一起使用，除非使用template包裹 -->
@@ -33,6 +34,15 @@ const home = useHomeStore()
             </li>
           </ul>
         </div>
+      </li>
+    </ul>
+
+    <!-- 分类占位效果 v-else 互斥 -->
+    <ul class="menu" v-else>
+      <li v-for="i in 9" :key="i">
+        <XtxSkeleton :width="40" :height="26" style="margin: 0 10px" bg="rgba(255,255,255,0.2)" />
+        <XtxSkeleton :width="50" :height="20" bg="rgba(255,255,255,0.2)" />
+        <XtxSkeleton :width="50" :height="20" bg="rgba(255,255,255,0.2)" />
       </li>
     </ul>
   </div>

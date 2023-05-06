@@ -24,9 +24,19 @@ export interface Category {
   goods: Goods[]
 }
 
+// 轮播图类型
+export interface Banner {
+  id: string
+  imgUrl: string
+  hrefUrl: string
+  type: string
+}
+
 // 分类数据列表类型
 export type CategoryList = Category[]
 
+// 轮播图
+export type BannerList = Banner[]
 /*
   通过json2ts快速生成 ts 类型数据
   默认生成的是rootobject，需要自己手动改名
