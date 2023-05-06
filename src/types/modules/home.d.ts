@@ -37,6 +37,10 @@ export type CategoryList = Category[]
 
 // 轮播图
 export type BannerList = Banner[]
+
+// 商品列表
+export type GoodsList = Goods[]
+
 /*
   通过json2ts快速生成 ts 类型数据
   默认生成的是rootobject，需要自己手动改名
