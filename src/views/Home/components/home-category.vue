@@ -16,6 +16,23 @@ const home = useHomeStore()
           <RouterLink to="/" v-if="index < 2">{{ curr.name }}</RouterLink>
         </template>
         <!-- 弹层layer位置 -->
+        <div class="layer">
+          <h4>分类推荐 <small>根据您的购买或浏览记录推荐</small></h4>
+          <ul>
+            <li v-for="goods in item.goods" :key="goods.id">
+              <RouterLink to="/">
+                <img :src="goods.picture" alt="" />
+                <div class="info">
+                  <p class="name ellipsis-2">
+                    {{ goods.name }}
+                  </p>
+                  <p class="desc ellipsis">{{ goods.desc }}</p>
+                  <p class="price"><i>¥</i>{{ goods.price }}</p>
+                </div>
+              </RouterLink>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </div>
