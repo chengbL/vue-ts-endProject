@@ -5,7 +5,6 @@ import { http } from '@/utils/request'
 import type { CategoryList, BannerList, GoodsList } from '@/types'
 
 export const useHomeStore = defineStore('home', {
-  persist: true, //!!开启持久化
   state() {
     return {
       categoryList: [] as CategoryList,
@@ -42,5 +41,12 @@ export const useHomeStore = defineStore('home', {
       const res = await http<GoodsList>('GET', '/home/hot')
       this.hotGoodsList = res.data.result
     }
+  },
+  // persist: true, //!!开启所有数据持久化
+  // !!也可以通过配置按需持久化
+  persist: {
+    key: 'homeState', //存储的键名
+    storage: sessionStorage, //存储方式默认是本地，现在修改成会话存储，window.可以省略不写
+    paths: ['categoryList'] //按需持久化，不会存储全部
   }
 })
