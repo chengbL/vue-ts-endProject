@@ -11,13 +11,19 @@ const { target } = useObserver(home.getHotGoodsList)
 <template>
   <div class="home-hot" ref="target">
     <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
-      <ul class="goods-list">
+      <ul class="goods-list" v-if="home.hotGoodsList.length > 0">
         <li v-for="item in home.hotGoodsList" :key="item.id">
           <RouterLink to="/">
             <img :src="item.picture" alt="" />
             <p class="name">{{ item.title }}</p>
             <p class="desc">{{ item.alt }}</p>
           </RouterLink>
+        </li>
+      </ul>
+
+      <ul class="goods-list" v-else>
+        <li v-for="item in 4" :key="item">
+          <XtxSkeleton :width="306" :height="406" bg="rgba(255,255,255,0.2)" />
         </li>
       </ul>
     </HomePanel>

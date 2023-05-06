@@ -13,13 +13,19 @@ const { target } = useObserver(home.getNewGoodsList)
     <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
       <template #right><XtxMore path="/" /></template>
       <!-- 面板内容 -->
-      <ul class="goods-list">
+      <ul class="goods-list" v-if="home.newGoodsList.length > 0">
         <li v-for="item in home.newGoodsList" :key="item.id">
           <RouterLink to="/">
             <img :src="item.picture" alt="" />
             <p class="name ellipsis">{{ item.name }}</p>
             <p class="price">&yen;{{ item.price }}</p>
           </RouterLink>
+        </li>
+      </ul>
+
+      <ul class="goods-list" v-else>
+        <li v-for="item in 4" :key="item">
+          <XtxSkeleton :width="306" :height="406" bg="rgba(255,255,255,0.2)" />
         </li>
       </ul>
     </HomePanel>
