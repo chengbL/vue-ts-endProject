@@ -5,6 +5,7 @@ import { http } from '@/utils/request'
 import type { CategoryList, BannerList, GoodsList } from '@/types'
 
 export const useHomeStore = defineStore('home', {
+  persist: true, //!!开启持久化
   state() {
     return {
       categoryList: [] as CategoryList,

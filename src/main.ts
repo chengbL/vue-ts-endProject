@@ -15,7 +15,11 @@ import router from '@/router'
 
 // !!使用pinia管理数据
 import { createPinia } from 'pinia'
+
+// !!持久化插件引入
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
 
 const app = createApp(App)
 
