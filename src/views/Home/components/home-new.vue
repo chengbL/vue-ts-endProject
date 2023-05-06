@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import HomePanel from './home-panel.vue'
 import { useHomeStore } from '@/store'
+
+import { useObserver } from '@/hooks'
 const home = useHomeStore()
-home.getNewGoodsList()
+
+const { target } = useObserver(home.getNewGoodsList)
 </script>
 
 <template>
-  <div class="home-new">
+  <div class="home-new" ref="target">
     <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
       <template #right><XtxMore path="/" /></template>
       <!-- 面板内容 -->

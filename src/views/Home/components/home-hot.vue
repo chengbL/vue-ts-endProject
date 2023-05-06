@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import HomePanel from './home-panel.vue'
 import { useHomeStore } from '@/store'
+
+import { useObserver } from '@/hooks'
 const home = useHomeStore()
-home.getHotGoodsList()
+
+const { target } = useObserver(home.getHotGoodsList)
 </script>
 
 <template>
-  <div class="home-hot">
+  <div class="home-hot" ref="target">
     <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
       <ul class="goods-list">
         <li v-for="item in home.hotGoodsList" :key="item.id">
